@@ -26,12 +26,21 @@ const object = {
   property1: "a",
   property2: "b",
   functionNameObject: function (variableName) {
-    console.log("c", variableName);
+    console.log("text", variableName);
   },
 };
 console.log(object.property1); // 따로 function으로 만들어지지 않은 object들은 console.log를 이용해서 가져오고
 object.functionNameObject("argument"); // object 내에 만든 function으로 만들어진 property는 다이렉트로 object.functionNameObject(); 형식으로 진행 -> 콘솔창에도 잘 나옴
 
+// ##중요## 추가하는 방법
+object.propertyPlus = "c";
+// property 추가
+object.functionNAmeObjectPlus = function (variableName1) {
+  console.log("text1", variableName1);
+}; // function property 추가
+console.log(object);
+
+// 연습
 const practiceOne = {
   fno: function (a, b) {
     console.log(a + b);
