@@ -1,8 +1,8 @@
-console.dir(document);
-// document =  html을 object 형식으로 보여줌
+// ##### 자주 사용! #####
+const title = document.getElementById("title");
+console.dir(title.innerText);
+title.innerText = "Change!!";
 
-document.title; // 'taewanJS'
-// JS는 HTML에 접근하고 읽을 수 있도록 설정이 되어있다.
-
-document.title = "taewanJSchangeName";
-// JS array나 object에 추가하는 것처럼 하면 수정이 됨
+console.log(title.id);
+console.log(title.class); // getElemenById로 id를 이용해서 연결한 것이라서 class를 찾을 수 없음
+console.log(title.className); // 하지만 id가 title인 tag에서 classNAme의 정보는 가지고 올 수 있다
