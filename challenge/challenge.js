@@ -1,7 +1,3 @@
-// <⚠️ DONT DELETE THIS ⚠️>
-const colors = ["#1abc9c", "#3498db", "#9b59b6", "#f39c12", "#e74c3c"];
-// <⚠️ /DONT DELETE THIS ⚠️>
-
 /*
 ✅ The text of the title should change when the mouse is on top of it.
 ✅ The text of the title should change when the mouse is leaves it.
@@ -11,29 +7,34 @@ const colors = ["#1abc9c", "#3498db", "#9b59b6", "#f39c12", "#e74c3c"];
 ✅ DO NOT CHANGE .css, or .html files.
 ✅ ALL function handlers should be INSIDE of "superEventHandler"
 */
-const title = document.querySelector("h2");
-const rightclick = document.querySelector("html");
+
+const h2 = document.querySelector("h2");
+const colors = ["#1abc9c", "#3498db", "#9b59b6", "#f39c12", "#e74c3c"];
 
 const superEventHandler = {
-  enter: function () {
-    title.style.color = colors[0];
-    title.innerText = "The mouse is here!";
+  handleEnter: function () {
+    h2.innerText = "The mouse is here!";
+    h2.style.color = colors[0];
   },
-  leave: function () {
-    title.style.color = colors[1];
-    title.innerText = "The mouse is gone!";
+  handleLeave: function () {
+    h2.innerText = "The mouse is gone!";
+    h2.style.color = colors[1];
   },
-  right: function () {
-    title.style.color = colors[2];
-    title.innerText = "That was a right click!";
+  handleResize: function () {
+    h2.innerText = "You just resized!";
+    h2.style.color = colors[2];
   },
-  resizeWindow: function () {
-    title.style.color = colors[3];
-    title.innerText = "You just resized!";
+  handleSelect: function () {
+    h2.innerText = "You're selecting me!";
+    h2.style.color = colors[3];
+  },
+  handleContext: function () {
+    h2.innerHTML = "That was a right click!";
+    h2.style.color = colors[4];
   },
 };
 
-title.addEventListener("mouseenter", superEventHandler.enter);
-title.addEventListener("mouseleave", superEventHandler.leave);
-rightclick.addEventListener("contextmenu", superEventHandler.right);
-window.addEventListener("resize", superEventHandler.resizeWindow);
+h2.addEventListener("mouseenter", superEventHandler.handleEnter);
+h2.addEventListener("mouseleave", superEventHandler.handleLeave);
+window.addEventListener("resize", superEventHandler.handleResize);
+window.addEventListener("contextmenu", superEventHandler.handleContext);
