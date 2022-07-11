@@ -1,22 +1,16 @@
-// html 기본 설정된 class 유지하는 방법 classList
+// login form div ckwdma
+const loginForm = document.querySelector("#login-form");
+const loginInput = loginForm.querySelector("input");
+const greeting = document.querySelector("#greeting");
 
-const h1 = document.querySelector(".hello h1");
-console.dir(h1);
-/* 콘솔창에서 보았을 때 h1에서 사용할 수 있는 object들이 나열되어있고 object 중에서도 안에 object가 있어서 h1.object.object = ""
-하거나 object 안에 prototype이 있어서 h1.object.prototype("##"); 이렇게 기능을 사용할 수 있는 것들이 존재한다
-1) 기본 tag 2) body 3) window */
+const HIDDEN_CLASSNAME = "hidden";
 
-function handleTitleClick() {
-  // h1.classList.toggle("active");
-  // 밑에 function이랑 같은 기능을 하는 code : toggle
-
-  const clickedClass = "active";
-  if (h1.classList.contains(clickedClass)) {
-    h1.classList.remove(clickedClass);
-  } else {
-    h1.classList.add(clickedClass);
-  }
+function onLoginSubmit(event) {
+  event.preventDefault();
+  loginForm.classList.add(HIDDEN_CLASSNAME);
+  const username = loginInput.value;
+  greeting.innerText = `hello, ${username}`;
+  greeting.classList.remove(HIDDEN_CLASSNAME);
 }
-h1.addEventListener("click", handleTitleClick);
-window.addEventListener("click", handleTitleClick);
-document.body.addEventListener("click", handleTitleClick);
+loginForm.addEventListener("submit", onLoginSubmit);
+// js는 함수를 실행시키는 동시에 그 함수에 첫번때 인자에 object를 넣어준다

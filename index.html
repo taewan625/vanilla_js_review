@@ -8,8 +8,16 @@
     <title>taewanJS</title>
   </head>
   <body>
-    <div class="hello"><h1 class="sexy-font">grab me!1</h1></div>
-
+    <form id="login-form">
+      <input
+        type="text"
+        placeholder="What;s your name"
+        required
+        maxlength="10"
+      />
+      <input type="submit" value="log in" />
+    </form>
+    <h1 id="greeting" class="hidden"></h1>
     <script src="app.js"></script>
   </body>
 </html>
