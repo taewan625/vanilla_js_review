@@ -13,3 +13,4 @@ document.body.appendChild(jsToHTMLImages);
 // JS -> HTML로 tag 넣는 법
 // 1) const variable = document.createElement("tagName")
 // 2) variable.argument = `text or ${}`
+// 3) document.body.appendChild(variable)
