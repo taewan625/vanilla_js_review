@@ -1,8 +1,8 @@
 const clock = document.querySelector("#clock");
 
-function sayHello() {
-  console.log("hello");
+function getClock() {
+  const date = new Date(); // date에 관한 모든 정보 함유
+  clock.innerText = `${date.getDay()}, ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`;
 }
-
-setInterval(sayHello, 5000);
-// setInterval ; 실시간 점검이 필요할 때 사용하는 함수
+getClock();
+setInterval(getClock, 1000);
