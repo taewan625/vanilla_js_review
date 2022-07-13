@@ -8,20 +8,19 @@
 
   <body>
     <h1>Random Number Game</h1>
-    <form>
-      <p>
-        Generate a number between 0 and
-        <input id="max" type="number" min="1" required />
-      </p>
-
-      Guess the number:
-      <input id="playerNum" type="number" min="0" required />
-      <input type="submit" value="Play!" /><br />
-      <span class="detail"></span><br />
-      <span id="innerHTML"></span>
-      <!--이 안에 내용인 You win은 JS에서 if 조건에 맞을 때 나타나게 하기 위해서 sapn만 남겨둠-->
+    <div>
+      <h3 class="js-title">
+        Generate a number between 0 and <input id="maxNumber" type="number" />
+      </h3>
+    </div>
+    <form id="js-guess">
+      <label>Guess the number:</label>
+      <input type="number" max="200" min="5" />
+      <button>Play!</button>
     </form>
-
+    <div id="js-result">
+      <span></span>
+    </div>
     <script src="challenge.js"></script>
   </body>
 </html>
