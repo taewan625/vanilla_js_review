@@ -1,28 +1,34 @@
-const clockTitle = document.querySelector(".js-clock");
+const colors = [
+  "#ef5777",
+  "#575fcf",
+  "#4bcffa",
+  "#34e7e4",
+  "#0be881",
+  "#f53b57",
+  "#3c40c6",
+  "#0fbcf9",
+  "#00d8d6",
+  "#05c46b",
+  "#ffc048",
+  "#ffdd59",
+  "#ff5e57",
+  "#d2dae2",
+  "#485460",
+  "#ffa801",
+  "#ffd32a",
+  "#ff3f34",
+];
 
-function getTime() {
-  const xmasDay = new Date(`${new Date().getFullYear()}-12-25:00:00:00+0900`);
-  const now = new Date();
-  const difference = new Date(xmasDay - now);
-  // Date 함수로 생성한 Date 객체는 연산이 가능합니다. 즉 xmasDay와 now를 연산할 수 있습니다.
-  // 크리스마스까지 얼마나 남았는지를 알기 위해 xmasDay에서 now를 빼주고 그 값을 difference로 선언해 줍니다.
+const button = document.querySelector("button");
+const body = document.querySelector("body");
+// body도 querySelector로 끄집어 내야 함 하지만 style.backgorundImage까지 만든 variable은 작동 X / 따로따로가 속편함
 
-  const secondsInMs = Math.floor(difference / 1000);
-  const minutesInMs = Math.floor(secondsInMs / 60);
-  const hoursInMs = Math.floor(minutesInMs / 60);
-  const days = Math.floor(hoursInMs / 24);
-
-  const seconds = secondsInMs % 60;
-  const minutes = minutesInMs % 60;
-  const hours = hoursInMs % 24;
-
-  // 삼항연산자:        조건         참         거짓
-  const daysStr = `${days < 10 ? `0${days}` : days}d`;
-  const hoursStr = `${hours < 10 ? `0${hours}` : hours}h`;
-  const minutesStr = `${minutes < 10 ? `0${minutes}` : minutes}m `;
-  const secondsStr = `${seconds < 10 ? `0${seconds}` : seconds}s`;
-  clockTitle.innerHTML = `${daysStr} ${hoursStr} ${minutesStr} ${secondsStr}`;
+function gradationColor() {
+  const firstColor = colors[Math.floor(Math.random() * colors.length)];
+  const secondColor = colors[Math.floor(Math.random() * colors.length)];
+  body.style.backgroundImage = `linear-gradient(to right, ${firstColor},${secondColor})`;
+  // body.style.backgorundImage까지 만든 "variable"은 작동 X / 따로따로가 속편함
+  // linear-gradient는 backgroundcolor가 아니라 backgorundImage를 이용 -> 벡틱 사용해서 설정
 }
 
-getTime();
-setInterval(getTime, 1000);
+button.addEventListener("click", gradationColor);
