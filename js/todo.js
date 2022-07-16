@@ -14,7 +14,16 @@ function handleToDoSubmit(event) {
 function paintToDo(argument) {
   const li = document.createElement("li");
   const span = document.createElement("span"); // li > span 하기 위해서
-  li.appendChild(span); // span 먼저 넣고
   span.innerText = argument;
+  const button = document.createElement("button");
+  button.innerText = "👌";
+  button.addEventListener("click", deleteToDo);
+  li.appendChild(span); // span 먼저 넣고
+  li.appendChild(button);
   toDoList.appendChild(li); // ul > li 넣기
+}
+
+function deleteToDo(argumentEvent) {
+  const findDeletToDoLi = argumentEvent.target.parentElement;
+  findDeletToDoLi.remove();
 }
