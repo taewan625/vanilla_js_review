@@ -11,8 +11,14 @@ function handleToDoSubmit(event) {
   event.preventDefault();
   const saveInputTodo = toDoInput.value;
   toDoInput.value = "";
-  saveToDosList.push(saveInputTodo);
-  paintToDo(saveInputTodo);
+  // todolist object
+  const newSaveInputTodoObj = {
+    text: saveInputTodo,
+    id: Date.now(),
+  };
+  // saved array
+  saveToDosList.push(newSaveInputTodoObj); //push data to object
+  paintToDo(newSaveInputTodoObj); // html에도 object 형식으로 올림
   saveToDos();
 }
 toDoForm.addEventListener("submit", handleToDoSubmit);
@@ -20,8 +26,10 @@ toDoForm.addEventListener("submit", handleToDoSubmit);
 // list 만드는 function
 function paintToDo(argumentNewTodo) {
   const li = document.createElement("li");
+  //   console.dir(li);
+  li.id = argumentNewTodo.id; // object의 id를 이용하기 위함
   const span = document.createElement("span");
-  span.innerText = argumentNewTodo;
+  span.innerText = argumentNewTodo.text; // object 중에서 text만 받을 것
   const button = document.createElement("button");
   button.innerText = "👌";
   button.addEventListener("click", deleteToDo);
@@ -38,7 +46,12 @@ function saveToDos() {
 // delete 하는 function
 function deleteToDo(argumentEvent) {
   const findDeletToDoLi = argumentEvent.target.parentElement;
+  // Delete하려고 click 한 것에 대한 list의 object에 관한 정보 가짐
   findDeletToDoLi.remove();
+  saveToDosList = saveToDosList.filter(
+    (item) => item.id !== parseInt(findDeletToDoLi.id)
+  );
+  saveToDos(); // data를 지우고 난 후에 다시 saveToDos로 list up 해야함
 }
 
 // array 추출
@@ -46,7 +59,8 @@ const saveToDosArray = localStorage.getItem(TODOS_KEY);
 
 if (saveToDosArray) {
   const parsedToDOs = JSON.parse(saveToDosArray);
-  //   parsedToDOs.forEach((eachItem) => console.log("todolist", eachItem));
   saveToDosList = parsedToDOs; // update할 값을 저장 - line7 과 관련
-  parsedToDOs.forEach(paintToDo); // 내가 가진 array item 각각을 paintToDO function엔 넣어주면 된다
+  parsedToDOs.forEach(paintToDo); //  .forEach는 paintToDo 자체를 돌리는거라서 이제는 object를 인식한다
 }
+
+function Filter() {}
