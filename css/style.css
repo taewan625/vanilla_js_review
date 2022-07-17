@@ -52,7 +52,7 @@ input::placeholder {
 }
 ul {
   list-style: none;
-  height: 105px;
+  height: 95px;
   /* height을 통해서 list 작성 공간 유지 */
 }
 li {
