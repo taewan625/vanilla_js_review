@@ -1,4 +1,4 @@
-//API-KEY 는 전역변수를 사용하여 gitignore 시킴. 연동을 위해서 key가 있는 js file을 html에 script로 연동만 하면 됨
+const API_KEY = "6ffa3e9c805736a3da29f72a03dd5e17";
 function onGoOk(position) {
   const lat = position.coords.latitude;
   const lon = position.coords.longitude;
