@@ -18,7 +18,7 @@ function onLoginSubmit(event) {
 // 초기값처럼 여기 있어도 되고
 
 function paintGreetings(anythingCan) {
-  greeting.innerText = `hello, ${anythingCan}`;
+  greeting.innerText = `Hello, ${anythingCan}`;
   greeting.classList.remove(HIDDEN_CLASSNAME);
 }
 

@@ -31,10 +31,10 @@ function paintToDo(argumentNewTodo) {
   const span = document.createElement("span");
   span.innerText = argumentNewTodo.text; // object 중에서 text만 받을 것
   const button = document.createElement("button");
-  button.innerText = "👌";
+  button.innerText = "□";
   button.addEventListener("click", deleteToDo);
-  li.appendChild(span);
   li.appendChild(button);
+  li.appendChild(span);
   toDoList.appendChild(li);
 }
 

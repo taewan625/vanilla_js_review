@@ -1,3 +1,76 @@
 .hidden {
   display: none;
 }
+body {
+  background-size: cover;
+  /* bacground-image 가 클때 적절한 size 맞춰줌 */
+  background: no-repeat fixed;
+  /* background가 바둑판처럼 반복되지 않도록 */
+  color: white;
+}
+header {
+  margin-top: 10%;
+  text-align: center;
+}
+#weather {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  line-height: 1.2;
+  margin: 5px 10px 0px 0px;
+  font-weight: bold;
+}
+#clock {
+  font-size: 800%;
+  font-weight: 900;
+  margin: 0;
+}
+input {
+  margin-bottom: 15px;
+  background: none;
+  width: 300px;
+  border: none;
+  border-bottom: 5px solid white;
+  text-align: center;
+  color: whitesmoke;
+  font-size: xx-large;
+  font-weight: 600;
+}
+#greeting {
+  font-size: 400%;
+}
+#todo-form > input {
+  font-weight: 400;
+  width: 360px;
+}
+input:focus {
+  outline: none;
+}
+input::placeholder {
+  color: whitesmoke;
+  font-style: italic;
+}
+ul {
+  list-style: none;
+  height: 105px;
+  /* height을 통해서 list 작성 공간 유지 */
+}
+li {
+  /* display: flex;
+  justify-content: center;
+  align-items: center; */
+  font-size: xx-large;
+  font-weight: 600;
+}
+button {
+  background: none;
+  border: none;
+  color: white;
+  font-size: xx-large;
+  font-weight: 900;
+}
+#quote {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}

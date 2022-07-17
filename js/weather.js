@@ -7,11 +7,9 @@ function onGoOk(position) {
     .then((response) => response.json())
     .then((data) => {
       const weather = document.querySelector("#weather span:first-child");
-      const degree = document.querySelector("#weather span:nth-child(2)");
       const location = document.querySelector("#weather span:last-child");
+      weather.innerText = `${data.weather[0].main} / ${data.main.temp} ºC`;
       location.innerText = data.name;
-      weather.innerText = data.weather[0].main;
-      degree.innerText = `/ ${data.main.temp}℃`;
     }); //fetch를 이용해서 network 창에서 url에 관한 정보를 얻을 수 있다
 }
 function onGoError() {
